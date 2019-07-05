@@ -24,7 +24,7 @@ DATOS <- read_delim(paste(ardat,nomDatos,sep=""), delim=";",col_types = cols())
 #### es importante que las columnas tengan el mismo nombre que el archivo de prueba
 print(names(DATOS))
 #Crear la lista de estaciones en el archivo de entrada
-Estaciones <- c("SANTIAGO","VALPARAISO","OTRA")
+Estaciones <- c("SANTIAGO","VALPARAISO")
 #Determinar la escala de spi SPI
 a <- 12 
 #Calcula el SPI y crea una variable llamada SPI_"NOMBRE.ESTACIÓN"_a, donde a=Escala de SPI
@@ -33,6 +33,6 @@ for (i in Estaciones) {
   if(i %in% DATOS$NAME){
     ## se filtra el dataframe para que solo devuelva los datso de esa estacion
     est <- DATOS[ which(DATOS$NAME==i ),]
-    write.table(spi(est$PRCP,a)$fitted,file=paste("SPI",i,a,sep = "_"))
+    write.table(spi(est$PRCP,a)$fitted,file=paste(ardat,paste("SPI",i,a,sep = "_"),sep = "/"))
   }
 }
