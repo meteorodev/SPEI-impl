@@ -14,7 +14,8 @@ library(readr)
 #############################
 #    Seccion a modificar    #
 #############################
-ardat<-"/home/darwin/Documentos/prueba/"
+ardat<-"/cloud/project/"
+
 #nombre del archivo de datos
 nomDatos <- "Dat_guate.csv"
 ###
